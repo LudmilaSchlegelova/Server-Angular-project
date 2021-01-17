@@ -1,1 +1,54 @@
-<button type="button" class="btn btn-primary">Primary</button>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 style="margin-bottom: 30px">My servers</h2>
+      <label for="name"><strong>Server Name</strong></label>
+      <input
+        id="name"
+        type="text"
+        class="form-control"
+        placeholder="Server Name"
+        [(ngModel)]="newServerName"
+        style="margin-bottom: 15px"
+      />
+      <label for="content"><strong>Server Content</strong></label>
+      <input
+        id="content"
+        type="text"
+        class="form-control"
+        placeholder="Server Content"
+        [(ngModel)]="newServerContent"
+        style="margin-bottom: 20px"
+      />
+      <button
+        class="btn btn-primary"
+        (click)="onAddRedServers()"
+        style="margin-right: 5px"
+      >
+        Add Red Server
+      </button>
+      <button class="btn btn-primary" (click)="onAddBlueServers()">
+        Add Blue Server
+      </button>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-xs-12">
+      <div
+        class="panel panel-default"
+        *ngFor="let serverElement of serverElements"
+      >
+        <div class="panel-heading">{{ serverElement.name }}</div>
+        <p class="panel-body">
+          <strong *ngIf="serverElement.type === 'red'" style="color: red">{{
+            serverElement.content
+          }}</strong>
+          <em *ngIf="serverElement.type === 'blue'" style="color: blue">{{
+            serverElement.content
+          }}</em>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
