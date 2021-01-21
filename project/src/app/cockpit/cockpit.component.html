@@ -5,7 +5,7 @@
   type="text"
   class="form-control"
   placeholder="Server Name"
-  [(ngModel)]="newServerName"
+  [(ngModel)]="serverName"
   style="margin-bottom: 15px"
 />
 <label for="content"><strong>Server Content</strong></label>
@@ -14,16 +14,16 @@
   type="text"
   class="form-control"
   placeholder="Server Content"
-  [(ngModel)]="newServerContent"
+  [(ngModel)]="serverContent"
   style="margin-bottom: 20px"
 />
 <button
   class="btn btn-primary"
-  (click)="onAddRedServers()"
+  (click)="addGreenServers()"
   style="margin-right: 5px"
 >
   Add Red Server
 </button>
-<button class="btn btn-primary" (click)="onAddBlueServers()">
+<button class="btn btn-primary" (click)="addYellowServers()">
   Add Blue Server
 </button>
