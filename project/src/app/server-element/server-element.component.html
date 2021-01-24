@@ -1,18 +1,11 @@
-<div class="row">
-  <div class="col-xs-12">
-    <div
-      class="panel panel-default"
-      *ngFor="let serverElement of serverElements"
-    >
-      <div class="panel-heading">{{ serverElement.name }}</div>
-      <p class="panel-body">
-        <strong *ngIf="serverElement.type === 'green'" style="color: green">{{
-          serverElement.content
-        }}</strong>
-        <em *ngIf="serverElement.type === 'yellow'" style="color: yellow">{{
-          serverElement.content
-        }}</em>
-      </p>
-    </div>
-  </div>
+<div class="panel panel-default">
+  <div class="panel-heading">{{ serverElement.name }}</div>
+  <p class="panel-body">
+    <strong *ngIf="serverElement.type === 'green'" style="color: #5cb85c">{{
+      serverElement.content
+    }}</strong>
+    <em *ngIf="serverElement.type === 'yellow'" style="color: #f0ad4e">{{
+      serverElement.content
+    }}</em>
+  </p>
 </div>
