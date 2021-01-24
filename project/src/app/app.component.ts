@@ -6,23 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  newServerName = '';
-  newServerContent = '';
+  serverElements = [{ type: 'yellow', name: 'test', content: 'test' }];
 
-  serverElements = [{ type: 'red', name: 'test', content: 'test' }];
+  //premenne, ktore su v objekte data musia byt pomenovane rovnako ako premenne v @Output-och createGreenServers a createYellowServers v subore cockpit.components.ts
 
-  onAddRedServers() {
+  // data: { name: string; content: string} ==> toto predstavuje zachyteny $event vo funkcii addGreenServers() a addYellowServers v app.component.html
+  addGreenServers(data: { name: string; content: string }) {
     this.serverElements.push({
-      type: 'red',
-      name: this.newServerName,
-      content: this.newServerContent,
+      type: 'green',
+      name: data.name,
+      content: data.content,
     });
   }
-  onAddBlueServers() {
+  addYellowServers(data: { name: string; content: string }) {
     this.serverElements.push({
-      type: 'blue',
-      name: this.newServerName,
-      content: this.newServerContent,
+      type: 'yellow',
+      name: data.name,
+      content: data.content,
     });
   }
 }
