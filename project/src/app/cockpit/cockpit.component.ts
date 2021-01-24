@@ -1,4 +1,10 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 
 @Component({
   selector: 'cockpit',
@@ -10,10 +16,14 @@ export class CockpitComponent {
   // serverName = '';
   // serverContent = '';
 
+  @ViewChild('serverName') serverName: ElementRef;
+  @ViewChild('serverContent') serverContent: ElementRef;
+
   //Kedze mame dve funkcie, ktore po kliknuti na button maju prepisovat hodnotu v premennych serverName a serverContent, musime si vytvorit instanciu EventEmitter(). Ta sa pouziva na vytvorenie vazby funkcie s udalostou, emit() sa pouziva na spustenie udalosti. Vyuzivame @Output dekorator, kedze data posielame smerom von z komponenty do rodicovskej komponenty(createGreenServers a createYellowServers su preposlane do app.component.html)
 
   //premenne v objekte, ktory vchadza do EventEmitteru musia byt pomenovane rovnako ako premenne v objekte data v addGreenServers a addYellowServers v subore cockpit.components.ts
-  @Output() createGreenServers = new EventEmitter<{
+  @Output()
+  createGreenServers = new EventEmitter<{
     name: string;
     content: string;
   }>();
@@ -22,24 +32,18 @@ export class CockpitComponent {
     content: string;
   }>();
 
-  addGreenServers(
-    serverName: HTMLInputElement,
-    serverContent: HTMLInputElement
-  ) {
-    console.log(serverName.value);
+  addGreenServers() {
+    console.log(this.serverName);
 
     this.createGreenServers.emit({
-      name: serverName.value,
-      content: serverContent.value,
+      name: this.serverName.nativeElement.value,
+      content: this.serverContent.nativeElement.value,
     });
   }
-  addYellowServers(
-    serverName: HTMLInputElement,
-    serverContent: HTMLInputElement
-  ) {
+  addYellowServers() {
     this.createYellowServers.emit({
-      name: serverName.value,
-      content: serverContent.value,
+      name: this.serverName.nativeElement.value,
+      content: this.serverContent.nativeElement.value,
     });
   }
 }
