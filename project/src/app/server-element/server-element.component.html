@@ -1,11 +1,4 @@
 <div class="panel panel-default">
   <div class="panel-heading">{{ serverElement.name }}</div>
-  <p class="panel-body">
-    <strong *ngIf="serverElement.type === 'green'" style="color: #5cb85c">{{
-      serverElement.content
-    }}</strong>
-    <em *ngIf="serverElement.type === 'yellow'" style="color: #f0ad4e">{{
-      serverElement.content
-    }}</em>
-  </p>
+  <ng-content></ng-content>
 </div>
