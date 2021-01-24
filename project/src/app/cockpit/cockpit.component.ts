@@ -7,8 +7,8 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class CockpitComponent {
   //Tieto premenne sa zasielaju do [(ngModel)] v cockpit.component.html subore
-  serverName = '';
-  serverContent = '';
+  // serverName = '';
+  // serverContent = '';
 
   //Kedze mame dve funkcie, ktore po kliknuti na button maju prepisovat hodnotu v premennych serverName a serverContent, musime si vytvorit instanciu EventEmitter(). Ta sa pouziva na vytvorenie vazby funkcie s udalostou, emit() sa pouziva na spustenie udalosti. Vyuzivame @Output dekorator, kedze data posielame smerom von z komponenty do rodicovskej komponenty(createGreenServers a createYellowServers su preposlane do app.component.html)
 
@@ -22,16 +22,24 @@ export class CockpitComponent {
     content: string;
   }>();
 
-  addGreenServers() {
+  addGreenServers(
+    serverName: HTMLInputElement,
+    serverContent: HTMLInputElement
+  ) {
+    console.log(serverName.value);
+
     this.createGreenServers.emit({
-      name: this.serverName,
-      content: this.serverContent,
+      name: serverName.value,
+      content: serverContent.value,
     });
   }
-  addYellowServers() {
+  addYellowServers(
+    serverName: HTMLInputElement,
+    serverContent: HTMLInputElement
+  ) {
     this.createYellowServers.emit({
-      name: this.serverName,
-      content: this.serverContent,
+      name: serverName.value,
+      content: serverContent.value,
     });
   }
 }
