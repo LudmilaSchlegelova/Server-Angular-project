@@ -12,9 +12,13 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onChangeFirst()">
+        change first element
+      </button>
       <server-element
         *ngFor="let serverElement of serverElements"
         [serverElement]="serverElement"
+        [name]="serverElement.name"
       >
         <p class="panel-body">
           <strong
@@ -25,8 +29,9 @@
           <em *ngIf="serverElement.type === 'yellow'" style="color: #f0ad4e">{{
             serverElement.content
           }}</em>
-        </p></server-element
-      >
+        </p>
+        <div #test>Test</div>
+      </server-element>
     </div>
   </div>
 </div>
