@@ -8,3 +8,6 @@
 4. rozdelit layout na dve komponenty, a to: cockpit a server-element (zacinam od server-element)
 
 5. vyriesit komunikaciu medzi komponentami
+
+## Riesenie
+[Demo](https://ludmilaschlegelova.github.io/Server-Angular-project/)
